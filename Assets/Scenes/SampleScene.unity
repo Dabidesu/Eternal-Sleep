@@ -329,6 +329,7 @@ GameObject:
   - component: {fileID: 1313802155}
   - component: {fileID: 1313802159}
   - component: {fileID: 1313802158}
+  - component: {fileID: 1313802160}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -353,18 +354,18 @@ MonoBehaviour:
     m_Bits: 64
   speed: 20
   runningSpeed: 40
-  horizontalValue: 0
+  horizontalValue: 5
   jumpForce: 10
-  jumpMultiplier: 0
+  jumpMultiplier: 2
   xVal: 0
   moveInput: 0
   facingRight: 1
   isGrounded: 0
   isRunning: 0
-  groundCheck: {fileID: 0}
+  groundCheck: {fileID: 1313802157}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!212 &1313802156
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -468,3 +469,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1313802160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313802154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0874f8ac9511ce94e899495629358810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platformLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  isGrounded: 0
