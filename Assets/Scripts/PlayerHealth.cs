@@ -39,6 +39,8 @@ public class PlayerHealth : MonoBehaviour
         {
             RestoreHealth(Random.Range(5, 10));
         }
+
+
     }
     
     public void UpdateHealthUI()
