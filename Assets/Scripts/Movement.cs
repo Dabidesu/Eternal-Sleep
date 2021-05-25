@@ -15,12 +15,13 @@ public class Movement : MonoBehaviour
     public float moveInput;
 
     public bool facingRight = true;
-    public bool isGrounded;
+    //public bool isGrounded;
     public bool isRunning;
 
     public Transform groundCheck;
     public LayerMask groundLayer;
-    
+
+
     
     private BoxCollider2D boxCollider2d;
     
@@ -47,9 +48,10 @@ public class Movement : MonoBehaviour
             //Jump
             jumpMultiplier = 1.0f;
             jumpForce = 40f * jumpMultiplier;
+                
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                if (isGrounded)
+                if (GroundChecker.isGrounded)
                 {   
                     Jump();
                 }    
@@ -66,14 +68,16 @@ public class Movement : MonoBehaviour
             else
             {
                 runningSpeed = speed * 2f;
-                Sprint(); 
+                Sprint();
+                if (xVal == 0)
+                    isRunning = false;
             }
 
             
         }
 
     }
-
+    
 
     bool CanMove()
     {
@@ -85,7 +89,7 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         Move(horizontalValue);
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer); 
+        GroundChecker.isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer); 
     }
 
     void Move(float dir)

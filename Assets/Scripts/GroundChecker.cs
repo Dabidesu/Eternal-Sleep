@@ -6,11 +6,12 @@ public class GroundChecker : MonoBehaviour
 {
     [SerializeField] private LayerMask platformLayerMask;
 
-    public bool isGrounded;
+    [SerializeField] public static bool isGrounded;
 
     private void OnTriggerStay2D(Collider2D collider)
     {
         isGrounded = collider != null && (((1 << collider.gameObject.layer) & platformLayerMask) != 0);
+        isGrounded = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
