@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Circle : MonoBehaviour
 {
-    [SerializeField]
+ 
     private Text TriggerText;
 
     private bool pickUpAllowed;
@@ -33,7 +33,7 @@ public class Circle : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.name.Equals("Player")
+        if (collision.gameObject.name.Equals("Player"))
         {
             TriggerText.gameObject.SetActive(false);
             pickUpAllowed = false;
