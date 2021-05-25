@@ -17,6 +17,7 @@ public class Movement : MonoBehaviour
     public bool facingRight = true;
     //public bool isGrounded;
     public bool isRunning;
+    public bool can;
 
     public Transform groundCheck;
     public LayerMask groundLayer;
@@ -24,12 +25,13 @@ public class Movement : MonoBehaviour
 
     
     private BoxCollider2D boxCollider2d;
-    
+    private Animator anim;
     
     Rigidbody2D rb;
 
     void Awake()
     {
+        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         boxCollider2d = transform.GetComponent<BoxCollider2D>();
     }
@@ -44,6 +46,8 @@ public class Movement : MonoBehaviour
         else if (CanMove() == true)
         {
             horizontalValue = Input.GetAxisRaw("Horizontal");
+            anim.SetBool("isWalking", false);
+            anim.SetBool("isJumping", false);
 
             //Jump
             jumpMultiplier = 1.0f;
@@ -52,28 +56,43 @@ public class Movement : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (GroundChecker.isGrounded)
-                {   
+                {
                     Jump();
-                }    
+                    
+                }
+                
             }   
-
+            
             //Walk
             if (horizontalValue != 0 && !Input.GetKey(KeyCode.LeftShift))
             {
                 Walk();
                 isRunning = false;
+                anim.SetBool("isWalking", true);
+                anim.SetBool("isRunning", false);
             }
 
             //Sprint
-            else
+            if (horizontalValue != 0 && Input.GetKey(KeyCode.LeftShift))
             {
                 runningSpeed = speed * 2f;
                 Sprint();
                 if (xVal == 0)
                     isRunning = false;
+                anim.SetBool("isWalking", false);
+                anim.SetBool("isRunning", true);
+            }
+            else
+
+
+            //Attack
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                AttackTest();
+                can = false;
+                //anim.SetBool("isAttacking", false);
             }
 
-            
         }
 
     }
@@ -82,7 +101,7 @@ public class Movement : MonoBehaviour
     bool CanMove()
     {
 
-        bool can = true;
+        can = true;
         return can;
     }
 
@@ -140,6 +159,14 @@ public class Movement : MonoBehaviour
     void Jump()
     {
         rb.velocity = Vector2.up * jumpForce;
+        anim.SetTrigger("pressedJump");
+        anim.SetBool("isJumping", true);
+    }
+
+    void AttackTest()
+    {
+        anim.SetTrigger("pressedAttack");
+        anim.SetBool("isAttacking", true);
     }
 }
 
