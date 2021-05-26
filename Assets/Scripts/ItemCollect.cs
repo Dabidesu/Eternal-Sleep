@@ -36,6 +36,7 @@ public class ItemCollect : MonoBehaviour
 
     private void PickUp()
     {
+        ItemTextScript.coinAmount++;
         Destroy(gameObject);
     }
 }

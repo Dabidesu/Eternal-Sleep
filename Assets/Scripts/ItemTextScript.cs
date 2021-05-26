@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ItemTextScript : MonoBehaviour
 {
-    public static int coinAmount;
+    [SerializeField] public static int coinAmount;
     private Text ItemsCollectedText;
 
     void Start ()
