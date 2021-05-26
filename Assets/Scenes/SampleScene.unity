@@ -328,7 +328,6 @@ GameObject:
   - component: {fileID: 53917460}
   - component: {fileID: 53917462}
   - component: {fileID: 53917458}
-  - component: {fileID: 53917464}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -472,21 +471,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &53917464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 53917457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 393212226f1ebc14fbe0e15326eff178, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LoadLevelusingInt: 1
-  LoadLevelusingStr: SampleScene
-  IntegerLevelLoader: 1
 --- !u!1 &148292649
 GameObject:
   m_ObjectHideFlags: 0

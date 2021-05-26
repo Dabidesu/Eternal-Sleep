@@ -17,6 +17,7 @@ public class ReloadLevelUponDeath : MonoBehaviour
 
     void Update()
     {
+        /*
         if (hp.GameOver())
         {
             //isDead();
@@ -26,7 +27,7 @@ public class ReloadLevelUponDeath : MonoBehaviour
                 //Debug.Log("It works lmao");
             //}
         }
-
+        */
     }
 
 
