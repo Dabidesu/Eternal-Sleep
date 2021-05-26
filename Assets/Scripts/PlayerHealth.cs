@@ -8,7 +8,7 @@ public class PlayerHealth : MonoBehaviour
     private float health;
     private float ltimer;
 
-    public float maxHealth = 100f;
+    public float maxHealth = 100.0f;
     public float chipSpeed = 2f;
     public float fillFront;
     public float fillBack;
@@ -17,27 +17,22 @@ public class PlayerHealth : MonoBehaviour
 
     public Image frontHPbar;
     public Image backHPbar;
+
+    private const float coef = 5f;
+
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
-        //DamageOverTime();
-    }
-
-    public void DamageOverTime()
-    {
-        while (health > 0)
-        {
-            TakeDamage(5f);
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        health = Mathf.Clamp(health, 0, maxHealth);
+        health -= coef * Time.deltaTime;
         UpdateHealthUI();
         //Debug.Log(health);
+
         if (Input.GetKeyDown(KeyCode.X))
         {
             TakeDamage(Random.Range(5, 10));
@@ -47,8 +42,6 @@ public class PlayerHealth : MonoBehaviour
         {
             RestoreHealth(Random.Range(5, 10));
         }
-
-
     }
 
     public void UpdateHealthUI()
@@ -90,10 +83,10 @@ public class PlayerHealth : MonoBehaviour
         health += restore;
         ltimer = 0f;
     }
-    
+
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy")
         {
             TakeDamage(20f);
         }
