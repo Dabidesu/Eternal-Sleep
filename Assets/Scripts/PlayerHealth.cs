@@ -8,7 +8,10 @@ public class PlayerHealth : MonoBehaviour
    
     private float ltimer;
 
+<<<<<<< HEAD
     public float health;
+=======
+>>>>>>> 109f6ad175c08162f89826025d1f8b9144229d8c
     public float maxHealth = 100.0f;
     public float chipSpeed = 2f;
     public float fillFront;
