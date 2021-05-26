@@ -395,6 +395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99db7d92d4496fd4087ea1f2c85e2181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
   maxHealth: 100
   chipSpeed: 2
   fillFront: 0
@@ -483,9 +484,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393212226f1ebc14fbe0e15326eff178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LoadLevelusingInt: 0
+  LoadLevelusingInt: 1
   LoadLevelusingStr: SampleScene
-  IntegerLevelLoader: 0
+  IntegerLevelLoader: 1
 --- !u!1 &148292649
 GameObject:
   m_ObjectHideFlags: 0

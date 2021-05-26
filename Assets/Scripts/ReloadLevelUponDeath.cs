@@ -12,22 +12,19 @@ public class ReloadLevelUponDeath : MonoBehaviour
     public PlayerHealth hp;
 
 
-    public bool isDead()
-    {
-        return true;
-    }
+
 
 
     void Update()
     {
         if (hp.GameOver())
         {
-            isDead();
-            if (isDead())
-            {
+            //isDead();
+            //if (isDead())
+            //{
                 LoadScene();
                 //Debug.Log("It works lmao");
-            }
+            //}
         }
 
     }
