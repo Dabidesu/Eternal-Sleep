@@ -700,6 +700,7 @@ MonoBehaviour:
   eHealth: 100
   eMaxHealth: 100
   eHealthBarUI: {fileID: 558410352}
+  enemySlider: {fileID: 589069399}
 --- !u!114 &263508505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1418,9 +1419,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2109,9 +2110,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1170620715}
   - component: {fileID: 1170620716}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: SwordHitbox
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

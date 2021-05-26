@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -8,18 +9,18 @@ public class EnemyHealth : MonoBehaviour
     public float eMaxHealth;
 
     public GameObject eHealthBarUI;
-    //public Slider slider;
+    public Slider enemySlider;
 
     void Start()
     {
         eHealth = eMaxHealth;
-        //slider.value = CalculateHealth();
+        
     }
 
     void Update()
     {
-        //slider.value = CalculateHealth();
 
+        enemySlider.value = eHealth;
         if (eHealth < eMaxHealth)
         {
             eHealthBarUI.SetActive(true);
@@ -48,5 +49,13 @@ public class EnemyHealth : MonoBehaviour
     public void eTakeDamage(float damage)
     {
         eHealth -= damage;
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Weapon")
+        {
+            eTakeDamage(5f);
+        }
     }
 }
