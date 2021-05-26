@@ -21,7 +21,15 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         health = maxHealth;
-        
+        DamageOverTime();
+    }
+
+    public void DamageOverTime()
+    {
+        while (health > 0)
+        {
+            TakeDamage(5f);
+        }
     }
 
     // Update is called once per frame
@@ -40,7 +48,7 @@ public class PlayerHealth : MonoBehaviour
             RestoreHealth(Random.Range(5, 10));
         }
     }
-    
+
     public void UpdateHealthUI()
     {
         Debug.Log(health);
@@ -48,7 +56,7 @@ public class PlayerHealth : MonoBehaviour
         fillBack = backHPbar.fillAmount;
         healthFraction = health / maxHealth;
 
-        if(fillBack > healthFraction)
+        if (fillBack > healthFraction)
         {
             frontHPbar.fillAmount = healthFraction;
             backHPbar.color = Color.red;
