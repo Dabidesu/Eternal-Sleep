@@ -37,7 +37,7 @@ public class PlayerHealth : MonoBehaviour
     {
         health = Mathf.Clamp(health, 0, maxHealth);
         UpdateHealthUI();
-        Debug.Log(health);
+        //Debug.Log(health);
         if (Input.GetKeyDown(KeyCode.X))
         {
             TakeDamage(Random.Range(5, 10));
@@ -47,11 +47,13 @@ public class PlayerHealth : MonoBehaviour
         {
             RestoreHealth(Random.Range(5, 10));
         }
+
+
     }
 
     public void UpdateHealthUI()
     {
-        Debug.Log(health);
+        //Debug.Log(health);
         fillFront = frontHPbar.fillAmount;
         fillBack = backHPbar.fillAmount;
         healthFraction = health / maxHealth;
@@ -87,5 +89,13 @@ public class PlayerHealth : MonoBehaviour
     {
         health += restore;
         ltimer = 0f;
+    }
+    
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Enemy")
+        {
+            TakeDamage(20f);
+        }
     }
 }

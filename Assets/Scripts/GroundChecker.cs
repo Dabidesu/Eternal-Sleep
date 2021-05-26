@@ -11,7 +11,7 @@ public class GroundChecker : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collider)
     {
         isGrounded = collider != null && (((1 << collider.gameObject.layer) & platformLayerMask) != 0);
-        isGrounded = true;
+        //isGrounded = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
