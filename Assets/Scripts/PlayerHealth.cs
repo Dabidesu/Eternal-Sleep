@@ -29,7 +29,7 @@ public class PlayerHealth : MonoBehaviour
     {
         health = Mathf.Clamp(health, 0, maxHealth);
         UpdateHealthUI();
-        Debug.Log(health);
+        //Debug.Log(health);
         if (Input.GetKeyDown(KeyCode.X))
         {
             TakeDamage(Random.Range(5, 10));
@@ -45,7 +45,7 @@ public class PlayerHealth : MonoBehaviour
     
     public void UpdateHealthUI()
     {
-        Debug.Log(health);
+        //Debug.Log(health);
         fillFront = frontHPbar.fillAmount;
         fillBack = backHPbar.fillAmount;
         healthFraction = health / maxHealth;
